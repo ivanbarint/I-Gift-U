@@ -6,9 +6,6 @@
 
     $date = $_SESSION['date'];
 
-    $personname = $_SESSION['personname'];
-    $eventtype = $_SESSION['eventtype'];
-
     include "../../db/index.php";
 
     $database = new Database();
@@ -17,7 +14,13 @@
 
     $eventid = $checkeventid[0]['EventID'];
 
-    echo "You are picking a gift for " . $personname . "'s ". $eventtype . ".";
+    $checkperson = $database->selectQuery("SELECT PersonID FROM Events WHERE EventID = '$eventid';");
+    $personid = $checkperson[0]['PersonID'];
+    $checkpersonname = $database->selectQuery("SELECT PersonName FROM Persons WHERE PersonID = '$personid';");
+    $personname = $checkpersonname[0]['PersonName'];
+    echo "<br>";
+
+    echo "You are picking a gift for " . $personname . ".";
 
     echo "<form method='POST' action='giftlist.php'>";
 

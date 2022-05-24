@@ -2,6 +2,28 @@
 
 session_start();
 
+$active_user = $_SESSION['username'];
+
+if(isset($active_user)) {
+
+    echo "<div class='welcome-message'>";
+    echo "Hi, " . $active_user;
+    echo "</div>";
+    echo "<div class='logout-button'>";
+    echo "<a href='api/endpoints/logout.php'>Logout</a>";
+    echo "<div>";
+    }         
+
+    else {
+
+    echo "<div class='error-message'>";
+    echo "You are not logged in!";
+    echo "<br>";
+    echo "<a class='link-message' href='../../index.html'>Login</a>";
+    echo "</div>";
+
+    }
+
 $username = $_SESSION['username'];
 
 include "db/index.php";

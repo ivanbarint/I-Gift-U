@@ -24,8 +24,8 @@
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => [
-            "X-RapidAPI-Host: []",
-            "X-RapidAPI-Key: []"
+            "X-RapidAPI-Host: amazon24.p.rapidapi.com",
+            "X-RapidAPI-Key: 18a2bb99e5msh9578e5c02a2d60bp140050jsn3e76e52955c9"
         ],
     ]);
 
