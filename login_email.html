@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I Gift U | Create New Account</title>
+    <title>I Gift U | Login</title>
 
     <link rel="stylesheet" href="assets/style/style.css">
 
@@ -13,15 +13,10 @@
 
     <div class="form-container">
 
-        <form method="POST" action="api/endpoints/signup.php">
+        <form method="POST" action="api/endpoints/login_email.php">
 
             <div class="form-part">
-                <h2 class="form-title">Create an account!</h2>
-            </div>
-
-            <div class="form-part">
-                <label class="form-label" for="username">Username</label>
-                <input class="form-input" type="text" name="username" id="username">
+                <h2 class="form-title">Log In!</h2>
             </div>
 
             <div class="form-part">
@@ -31,21 +26,21 @@
 
             <div class="form-part">
                 <label class="form-label" for="psw">Password</label>
-                <input class="form-input" type="password" name="psw" id="psw" minlength="8">
+                <input class="form-input" type="password" name="psw" id="psw">
+            </div>
+    
+            <div class="form-part">
+                <h5 class="form-message">Forgot Password?</h5>
+                <a class="form-link-message" href="mailforresetpass.html">Reset Password</a>
             </div>
 
             <div class="form-part">
-                <label class="form-label" for="cpsw">Confirm Password</label>
-                <input class="form-input" type="password" name="cpsw" id="cpsw" minlength="8">
+                <input class="form-button" type="submit" value="Login">
             </div>
 
             <div class="form-part">
-                <input class="form-button" type="submit" value="Sign Up">
-            </div>
-
-            <div class="form-part">
-                <h5 class="form-message">Already have an account?</h5>
-                <a class="form-link-message" href="index.html">Log In!</a>
+                <h5 class="form-message">Don't have an account?</h5>
+                <a class="form-link-message" href="signup.html">Create One!</a>
             </div>
     
         </form>

@@ -10,6 +10,9 @@
     $email = $_POST["email"];
     $password = $_POST["psw"];
     $cpassword = $_POST["cpsw"];
+    
+    $password = hash('sha3-512' , $password);
+    $cpassword = hash('sha3-512' , $cpassword);
 
     if ($username && $email && $password && $cpassword) {
 

@@ -163,7 +163,7 @@ for ($day = 1; $day <= $day_count; $day++, $str++) {
 
     <?php
 
-        include "api/components/headerfromroot.php";
+        include "api/components/navbar.php";
 
     ?>
 
