@@ -36,6 +36,11 @@
             echo "</div>";
 
             }
+        include "db/index.php";
+        $database = new Database();
+
+        $sql = "SELECT * FROM eventtypes;";
+        $response = $database->selectQuery($sql);
 
     ?>
 
@@ -101,13 +106,11 @@
             <div class='form-part'>
                 <label for="eventtype">Event Type</label>
                 <select name="eventtype" id="eventtype">
-                    <option value="birthday">Birthday</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="anniversery">Anniversery</option>
-                    <option value="engagement">Engagement</option>
-                    <option value="baby">Baby</option>
-                    <option value="private">Private</option>
-                    <option value="other">Other</option>
+                <?php
+                    foreach($response as $event) {
+                        echo "<option value=".$event["EventTypeName"].">".$event["EventTypeName"]."</option>";
+                    }
+                ?>
                 </select>
             </div>
 
