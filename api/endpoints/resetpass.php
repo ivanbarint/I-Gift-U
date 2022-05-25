@@ -2,13 +2,9 @@
     
     $sql = "SELECT * FROM Users;";
     session_start();
-
-    //$activeuser = $_SESSION['username'];
-
     include "../../db/index.php";
 
     $email = $_POST["email"];
-    // $cemail = $_POST["cemail"];
     $password = $_POST["psw"];
     $cpassword = $_POST["cpsw"];
     $password = hash('sha3-512' , $password);
@@ -22,17 +18,9 @@
             $database = new Database();
 
             // Check if email already exist in the database
-
-            // $userexists = 0;
             $emailexists = 0;
 
             $checkuser = $database->selectQuery("SELECT * FROM Users;");
-
-            // foreach($checkuser as $user) {
-            //     if ($user['Username'] == $username) {
-            //         $userexists++;
-            //     }
-            // }
 
             foreach($checkuser as $user) {
                 if ($user['Email'] == $email) {
@@ -45,7 +33,7 @@
                 }
             }
             
-            if ( $emailexists == 0) {// $userexists == 0 && $emailexists == 0) {
+            if ( $emailexists == 0) {
                 // email doesn't exist
                 echo "<div class='error-message'>";
                     echo "Please signup! <br> Email address isn't in use!";
@@ -63,6 +51,7 @@
             }
             else if ($emailexists == 1) {
                 if ($userinfo['password'] === $password){
+                    // password is same as previous password
                     echo "<div class='error-message'>";
                     echo "The password cannot be the same as the last one.";
                     echo "<br>";
@@ -77,8 +66,10 @@
                     $database->insertQuery($sql);
                     
                     include "../components/navbar.php";
-                    echo "<div class='approved-message'>";
-                        echo "<a class='link-message' href='../../calendar.php'>Go to Calendar</a>";
+                    echo "<div class='password-updated'>";
+                        echo "Password updated";
+                        echo "<br>";
+                        echo "<a href='../../index.html'>Go to login page!</a>";
                     echo "</div>";
                 }
 
@@ -98,13 +89,27 @@
 
     }
 
-    else {
-
+    else if ($email == "") {
         echo "<div class='error-message'>";
-            echo "You have to fill up all the fields!";
-            echo "<br>";
-            echo "<a class='link-message' href='../../signup.html'>Go Back</a>";
+        echo "Email field is empty!";
+        echo "<br>";
+        echo "<a href='../../resetpass.html'>Go back!</a>";
         echo "</div>";
-
     }
+
+    else if ($newpassword == "") {
+        echo "<div class='error-message'>";
+        echo "Password field is empty!";
+        echo "<br>";
+        echo "<a href='../../resetpass.html'>Go back!</a>";
+        echo "</div>";
+    }
+
+    else if ($cpassword == "") {
+        echo "<div class='error-message'>";
+        echo "You have to confirm your password!";
+        echo "<br>";
+        echo "<a href='../../resetpass.html'>Go back!</a>";
+        echo "</div>";
+    } 
 ?>
