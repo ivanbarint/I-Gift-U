@@ -53,17 +53,17 @@
 
             <div class='form-part'>
                 <label for="firstname">First Name</label>
-                <input type="text" name="firstname" id="firstname">
+                <input type="text" name="firstname" id="firstname" placeholder="ex: James">
             </div>
 
             <div class='form-part'>
                 <label for="lastname">Last Name</label>
-                <input type="text" name="lastname" id="lastname">
+                <input type="text" name="lastname" id="lastname" placeholder="ex: Bond">
             </div>
 
             <div class='form-part'>
                 <label for="age">Age</label>
-                <input type="number" id="age" name="age">
+                <input type="number" id="age" name="age" placeholder="ex: 18">
             </div>
 
             <div class='form-part'>
@@ -94,8 +94,8 @@
         <form method="POST" action="api/endpoints/addevent.php">
 
             <div class='form-part'>
-                <label for="person">Person</label>
-                <input type="text" name="person" id="person">
+                <label for="person">Fullname</label>
+                <input type="text" name="person" id="person" placeholder="James Bond">
             </div>
 
             <div class='form-part'>
