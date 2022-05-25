@@ -40,8 +40,10 @@
         $database = new Database();
 
         $sql = "SELECT * FROM eventtypes;";
-        $response = $database->selectQuery($sql);
-
+        $events = $database->selectQuery($sql);
+        
+        $sql = "SELECT * FROM genders;";
+        $genders = $database->selectQuery($sql);
     ?>
 
     <h1>Add Something to the Calendar</h1>
@@ -74,9 +76,11 @@
             <div class='form-part'>
                 <label for="gender">Gender</label>
                 <select name="gender" id="gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <?php
+                        foreach($genders as $gender){
+                            echo "<option value=".$gender['GenderName'].">".$gender['GenderName']."</option>";
+                        }
+                    ?>
                 </select>
             </div>
 
@@ -107,7 +111,7 @@
                 <label for="eventtype">Event Type</label>
                 <select name="eventtype" id="eventtype">
                 <?php
-                    foreach($response as $event) {
+                    foreach($events as $event) {
                         echo "<option value=".$event["EventTypeName"].">".$event["EventTypeName"]."</option>";
                     }
                 ?>
