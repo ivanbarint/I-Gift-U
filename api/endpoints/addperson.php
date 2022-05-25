@@ -61,6 +61,8 @@
 
             echo "<br>";
             echo "<a href='../../add.php'>Add something else</a>";
+            echo "<br>";
+            echo "<a href='../../add.php'>Add Event</a>";
 
         }
         
