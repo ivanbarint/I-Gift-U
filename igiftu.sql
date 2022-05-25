@@ -60,13 +60,11 @@ INSERT INTO EventTypes (EventTypeName) VALUES ('Baby');
 INSERT INTO EventTypes (EventTypeName) VALUES ('Private');
 INSERT INTO EventTypes (EventTypeName) VALUES ('Other');
 
-
-
-
-
-
-
-	
-
-
-
+DELIMITER $$
+CREATE PROCEDURE Reset_Password(IN _email VARCHAR(100), IN new_password VARCHAR(100))
+	BEGIN     
+		UPDATE Users
+		SET password = new_password
+		WHERE email = _email;
+    END $$
+DELIMITER ;
