@@ -8,6 +8,9 @@
     $password = hash('sha3-512' , $password);
      
     if ($email && $password) {
+
+        $_SESSION['username'] = $username;
+        $activeuser = $_SESSION['username'];
         
         $database = new Database();
         

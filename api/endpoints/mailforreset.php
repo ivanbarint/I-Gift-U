@@ -26,13 +26,17 @@
     }
 
     else if ($email == "") {
+        echo "<div class='error-message'>";
         echo "Email field is empty!";
+        echo "</div>";
         echo "<br>";
         echo "<a href='../../mailforreset.html'>Go back!</a>";
     }
 
     else if ($cemail == "") {
+        echo "<div class='error-message'>";
         echo "Confirm email field is empty!";
+        echo "</div>";
         echo "<br>";
         echo "<a href='../../mailforreset.html'>Go back!</a>";
     }
