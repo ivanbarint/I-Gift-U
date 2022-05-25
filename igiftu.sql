@@ -48,6 +48,15 @@ ALTER TABLE Persons
 ALTER TABLE Events
 	ADD FOREIGN KEY (EventTypeID) REFERENCES EventTypes(EventTypeID);
 
+DELIMITER $$
+CREATE PROCEDURE Reset_Password(IN _email VARCHAR(100), IN new_password VARCHAR(100))
+	BEGIN     
+		UPDATE users
+		SET password = new_password
+		WHERE email = _email;
+    END $$
+DELIMITER ;
+
 INSERT INTO Genders (GenderName) VALUES ('Male');
 INSERT INTO Genders (GenderName) VALUES ('Female');
 INSERT INTO Genders (GenderName) VALUES ('Other');
@@ -59,14 +68,4 @@ INSERT INTO EventTypes (EventTypeName) VALUES ('Engagement');
 INSERT INTO EventTypes (EventTypeName) VALUES ('Baby');
 INSERT INTO EventTypes (EventTypeName) VALUES ('Private');
 INSERT INTO EventTypes (EventTypeName) VALUES ('Other');
-
-
-
-
-
-
-
-	
-
-
 
